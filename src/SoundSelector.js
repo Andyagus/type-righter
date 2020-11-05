@@ -11,8 +11,9 @@ export default class SoundSelector extends React.Component{
 		return(
 			<div> 
 				<select onChange={(e) => {
-						this.setState({selectedSound: e.target.value},
-						this.props.soundChangeHandler(this.state.selectedSound)
+						this.setState({selectedSound: e.target.value}, () => {
+							this.props.soundChangeHandler(this.state.selectedSound)
+						}
 						)
 					}}>
 				  <option value="Type">TypeWriter</option>

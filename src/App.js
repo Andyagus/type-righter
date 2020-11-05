@@ -16,7 +16,16 @@ class App extends React.Component{
   }
 
   soundChangeHandler = (imptSound) => {
-    this.setState({sound: imptSound})
+   if(imptSound === "Type"){
+    console.log("duck hello")
+   }else if(imptSound==="Cluck"){
+    console.log("duck cluck")
+   }else if(imptSound === "Piano"){
+    console.log("ring ring ring")
+   }else if(imptSound === "Nose"){
+    console.log("Smelly")
+   }
+
   }
 
   render(){
