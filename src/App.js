@@ -6,24 +6,30 @@ import SoundSelector from './SoundSelector'
 class App extends React.Component{
   
   state = {
-    sound: ""
+    sound: "http://soundbible.com/grab.php?id=2108&type=wav"
+  }
+
+  componentDidMount(){
+    window.addEventListener("keydown", e => {
+          this.playSound()
+      })
   }
 
   playSound = () => {
-    console.log(this.state.sound)
-    //var audio = new Audio(this.state.sound)
-    //audio.play()
+
+    var audio = new Audio(this.state.sound)
+    audio.play()
   }
 
   soundChangeHandler = (imptSound) => {
    if(imptSound === "Type"){
-    console.log("duck hello")
+    this.setState({sound: "http://soundbible.com/grab.php?id=2108&type=wav"})
    }else if(imptSound==="Cluck"){
-    console.log("duck cluck")
+    this.setState({sound: ""})
    }else if(imptSound === "Piano"){
-    console.log("ring ring ring")
+    this.setState({sound: "https://freesound.org/people/neatonk/sounds/148580/download/148580__neatonk__piano-med-ab7.wav"})
    }else if(imptSound === "Nose"){
-    console.log("Smelly")
+    this.setState({sound: "https://freesound.org/people/Otakua/sounds/219913/download/219913__otakua__snif01.wav"})
    }
 
   }
@@ -31,9 +37,6 @@ class App extends React.Component{
   render(){
       return (
         <div> 
-          <h1 onClick = {()=> {
-            this.playSound()
-            }}> Hello World </h1> 
           <SoundSelector soundChangeHandler={this.soundChangeHandler}/>
         </div>
 
