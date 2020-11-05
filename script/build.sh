@@ -15,3 +15,5 @@ build() {
 
     mv dist/index.html dist/popup.html
 }
+
+build
